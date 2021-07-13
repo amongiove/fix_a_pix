@@ -2,6 +2,11 @@ const endPoint = "http://localhost:3000/api/v1/pictures"
 
 document.addEventListener('DOMContentLoaded', () => {
     getPictures()
+
+    const searchPicture = document.querySelector("#picture-search-form")
+
+    searchPicture.addEventListener("submit", (e) => searchPictureHandler(e))
+
 })
 
 function getPictures(){
@@ -22,4 +27,10 @@ function getPictures(){
             document.querySelector('#picture-container').innerHTML += pictureMarkup
         })
       })
+}
+
+function searchPictureHandler(e) {
+    e.preventDefault()
+    const keywordInput = document.querySelector("#search-keyword").value
+    console.log(keywordInput);
 }
