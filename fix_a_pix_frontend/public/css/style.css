@@ -1,3 +1,12 @@
+h1 {
+    text-align: center;
+    color: rgb(6, 7, 77);
+}
+
+h2 {
+    color: rgb(6, 77, 77);
+}
+
 .img-rounded-border {
     border:10px solid blue;
     border-radius:10px;

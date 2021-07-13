@@ -8,60 +8,47 @@
     
   </head>
   <body>
-    <div id="picture-container">
+    <h1>Fix a Pix</h1>
+    <!-- <div id="picture-container">
+    </div> -->
+
+    <div class="random-puzzles">
+      <h2>Featured Puzzles (lay out 5 puzzles OR make this images)</h2>
     </div>
 
    <div class="picture-form-container">
-
+    <h2>Create your own Puzzle</h2>
       <form id="picture-search-form">
         <input id='search-keyword' type="text" name="keyword" value="" placeholder="Enter desired image..." class="input-text">
-        <input id= 'submit-button' type="submit" name="submit" value="Search Images" class="submit">
+        <input id= 'submit-button' type="submit" name="submit" value="Search for Pix" class="submit"><br><br>
+        <input id= 'random-button' type="button" name="submit" value="Get random Pix (pending)" class="random">
       </form><br><br>
 
    </div>
 
-   <div id="select-pics-container">
-    <form id="select-pics-form">
-      <div id="select-pics">
+  <div id="select-pics">
+    <div id="select-instructions">
+      <h2>Select an Image to create a Puzzle</h2>
+    </div>
+  </div>
 
-      </div>
-      <select id="difficulty_level" name="difficulty_level">
+   <div id="puzzle-form-container">
+    <form id="create-puzzle-form">
+      
+      <!-- <input id="selected-image" name="selected-image" type="hidden" value=selectedImage> -->
+
+      <!-- <select id="difficulty_level" name="difficulty_level">
         <optgroup label="Difficulty">
         <option value="1">Easy</option>
         <option value="2">Medium</option>
         <option value="3">Hard</option>
-      </select>
+      </select> -->
 
-      <input id= 'submit-button' type="submit" name="submit" value="Make into a Puzzle" class="submit">
+      <!--this should only be present when images rendered-->
+      <input id= 'create-puzzle-button' type="submit" name="submit" value="Create Puzzle" class="submit">
     </form><br><br>
 
    </div>
-
-
-   <!-- <div class="new-puzzle-container">
-
-    <form id="new-puzzle-form" style="">
-      <h3>Create a Puzzle</h3>
-  
-      <input id='input-title' type="text" name="title" value="" placeholder="Enter your syllabus name..." class="input-text">
-      <br><br>
-      <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter your syllabus description..."></textarea>
-      <br><br>
-      <input id='input-url' type="text" name="image" value="" placeholder="Enter your syllabus image URL..." class="input-text">
-      <br><br>
-  
-      <select id="difficulty_level" name="difficulty_level">
-        <optgroup label="Difficulty">
-        <option value="1">Easy</option>
-        <option value="2">Medium</option>
-        <option value="3">Hard</option>
-      </select>
-      <br><br>
-  
-      <input id= 'create-button' type="submit" name="submit" value="Create New Puzzle" class="submit">
-    </form>
-  
-  </div> -->
 
   </body>
 </html>

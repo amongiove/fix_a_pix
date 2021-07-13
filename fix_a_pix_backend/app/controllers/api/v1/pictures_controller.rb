@@ -10,6 +10,12 @@ class Api::V1::PicturesController < ApplicationController
         render json: PictureSerializer.new(pictures)
     end
 
+    # def random
+    #     #generate random pic if user selects
+    #     client = Pexels::Client.new('563492ad6f91700001000001a28dec988d85416a9cf80775977cb110')
+    #     client.photos.curated(per_page: 5)
+    # end
+
     def search
         keyword = params[:keyword]
         client = Pexels::Client.new('563492ad6f91700001000001a28dec988d85416a9cf80775977cb110')
