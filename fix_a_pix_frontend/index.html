@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+     
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    
   </head>
   <body>
     <div id="picture-container">
@@ -17,7 +20,21 @@
 
    </div>
 
-   <div id="search-pics">
+   <div id="select-pics-container">
+    <form id="select-pics-form">
+      <div id="select-pics">
+
+      </div>
+      <select id="difficulty_level" name="difficulty_level">
+        <optgroup label="Difficulty">
+        <option value="1">Easy</option>
+        <option value="2">Medium</option>
+        <option value="3">Hard</option>
+      </select>
+
+      <input id= 'submit-button' type="submit" name="submit" value="Make into a Puzzle" class="submit">
+    </form><br><br>
+
    </div>
 
 

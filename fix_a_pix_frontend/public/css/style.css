@@ -1,0 +1,8 @@
+.img-rounded-border {
+    border:10px solid blue;
+    border-radius:10px;
+}
+
+.img-margin {
+    margin:10px;
+  }

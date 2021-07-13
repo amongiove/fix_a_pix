@@ -17,7 +17,7 @@ function getPictures(){
         pictures.data.forEach(picture => {
           const pictureMarkup = `
             <div data-id=${picture.id}>
-              <img src=${picture.attributes.picture_url} height="200" width="250">
+              <img src=${picture.attributes.picture_url} height="100" width="150">
               <h3>${picture.attributes.title}</h3>
               ${picture.attributes.puzzles.length} puzzles</p>
               <button data-id=${picture.id}>ButtonToID</button>
@@ -32,23 +32,24 @@ function getPictures(){
 function searchPictureHandler(e) {
     e.preventDefault()
     const keywordInput = document.querySelector("#search-keyword").value
-    console.log(keywordInput)
     const search = `http://localhost:3000/api/v1/pictures/search/${keywordInput}`
     fetch(search)
     .then(response => response.json())
-
     .then(photos => {
-        console.log(photos)
-        photos.forEach(photo => {
-          const results = `
-            <div>
-              <img src=${photo.src.original} height="200" width="250">
-            </div>
-            <br><br>`;
-  
-            document.querySelector('#search-pics').innerHTML += results
+        for(let i = 0; i < photos.length; i++) {
+            const img = document.createElement("img");
+            img.src = `${photos[i].src.small}`;
 
-            //TODO: reset after each new search
-        })
+            img.setAttribute("class", "img-margin");
+
+            img.addEventListener("click", function() {
+                let clicked = document.getElementsByClassName('img-rounded-border')
+                for(let i = 0; i < clicked.length; i++) {
+                    clicked[i].classList.remove("img-rounded-border");
+                }
+                img.classList.add("img-rounded-border");
+            })
+            document.querySelector('#select-pics').appendChild(img);    
+        }
     })
 }
