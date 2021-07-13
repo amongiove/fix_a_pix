@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-
 // function getPictures(){
     // might want to do this for 5 max pics to display at top
 //     fetch(endPoint)
@@ -41,6 +40,9 @@ function hideCreatePuzzle()  {
 
 function searchPictureHandler(e) {
     e.preventDefault()
+    document.querySelector('#select-pics').innerHTML = ""
+    hideCreatePuzzle()
+
     const keywordInput = document.querySelector("#search-keyword").value
     const search = `http://localhost:3000/api/v1/pictures/search/${keywordInput}`
     fetch(search)
@@ -58,15 +60,10 @@ function searchPictureHandler(e) {
                     clicked[i].classList.remove("img-rounded-border");
                 }
                 img.classList.add("img-rounded-border");
-                document.getElementById("create-puzzle-form").style.visibility="visible"; 
-
-                //reset field before next search 
+                document.getElementById("create-puzzle-form").style.visibility="visible";
                 
             })
             document.querySelector('#select-pics').appendChild(img);
-
-           
-
             document.getElementById("select-instructions").style.visibility="visible"; 
             
         }
@@ -76,9 +73,9 @@ function searchPictureHandler(e) {
 function createPuzzleHandler(e){
     e.preventDefault()
     let selectedImage = document.querySelector(".img-rounded-border")
-    console.log(selectedImage)
-    console.log(e.target)
+    console.log(selectedImage.src)
+    //use source to create image object 
+    //use image object to create puzzles (of various difficulties)
     console.log("create puzzle handler")
-    // const selectedImage = document.querySelector(".img-rounded-border")
 }
 

@@ -4,16 +4,15 @@ class Api::V1::PicturesController < ApplicationController
 
     def index
         pictures = Picture.all
-        # options = {
-        #     include: [:puzzles, :category] 
-        # } -- would pass in options below if using this
         render json: PictureSerializer.new(pictures)
     end
 
     # def random
     #     #generate random pic if user selects
     #     client = Pexels::Client.new('563492ad6f91700001000001a28dec988d85416a9cf80775977cb110')
-    #     client.photos.curated(per_page: 5)
+    #     random = client.photos.curated(per_page: 5)
+
+    #   render json: random
     # end
 
     def search
