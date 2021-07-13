@@ -13,15 +13,10 @@ class Api::V1::PicturesController < ApplicationController
     def search
         keyword = params[:keyword]
         client = Pexels::Client.new('563492ad6f91700001000001a28dec988d85416a9cf80775977cb110')
-        #TODO hide auth code in .env file
-        #TODO make so dont have to create new client each time
+            #move this so don't need new client each time
+            #  #TODO hide auth code in .env file  
         photos = client.photos.search(keyword, per_page: 5)
-        puts photos
-        # pexelPics = []
-        # photos.each do |photo|
-        #     pexelPics << photo.url
-        # end
-        #TODO move this functionality into different model
+        
         render json: photos
     end
 
@@ -39,5 +34,7 @@ class Api::V1::PicturesController < ApplicationController
     def picture_params
         params.require(:picture).permit(:picture_url, :title, :category_id)
     end
+
+
 
 end
