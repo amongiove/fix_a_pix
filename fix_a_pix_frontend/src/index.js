@@ -79,17 +79,12 @@ function searchPictureHandler(e) {
 function createPuzzleHandler(e){
     e.preventDefault()
     const selectedPictureUrl = document.querySelector(".img-rounded-border").src
-    console.log(selectedPictureUrl)
     const difficultyLevel = document.querySelector("#difficulty_level").value
-    console.log(difficultyLevel)
-    console.log("inside create puzzle handler")
+    
     createPicturePostFetch(selectedPictureUrl, difficultyLevel)
 }
 
 function createPicturePostFetch(picture_url, difficultyLevel){
-    console.log("inside create picture post fetch")
-    const difficulty_level = difficultyLevel
-
     fetch(pictureEndPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -97,26 +92,20 @@ function createPicturePostFetch(picture_url, difficultyLevel){
     })
     .then(response => response.json())
     .then(picture => {
-        console.log("back from picture backend")
-        console.log(picture);
-        
-        // createPuzzlePostFetch(picture, difficulty_level)
+        pictureId = picture.id
+    
+        createPuzzlePostFetch(pictureId, difficultyLevel)
     })
 }
 
-function createPuzzlePostFetch(picture, difficulty_level){
-    console.log("inside create puzzle post fetch")
-    //create puzzle 
-    console.log(picture)
-    console.log(difficulty_level)
-    // fetch(puzzleEndPoint, {
-    //     method: "POST",
-    //     headers: {"Content-Type": "application/json"},
-    //     body: JSON.stringify({picture, difficulty_level})
-    // })
-    // .then(response => response.json())
-    // .then(puzzle => {
-    //     console.log("back from create puzzle backend")
-    //     console.log(puzzle);
-    // })
+function createPuzzlePostFetch(picture_id, difficulty_level){
+    fetch(puzzleEndPoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({picture_id, difficulty_level})
+    })
+    .then(response => response.json())
+    .then(puzzle => {
+        console.log(puzzle);
+    })
 }
