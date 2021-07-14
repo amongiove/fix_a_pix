@@ -8,7 +8,7 @@ h2 {
 }
 
 .img-rounded-border {
-    border:10px solid blue;
+    border:10px solid rgb(15, 170, 170);
     border-radius:10px;
 }
 

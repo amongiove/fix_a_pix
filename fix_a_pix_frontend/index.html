@@ -9,17 +9,22 @@
   </head>
   <body>
     <h1>Fix a Pix</h1>
-    <!-- <div id="picture-container">
-    </div> -->
 
     <div class="random-puzzles">
-      <h2>Featured Puzzles (lay out 5 puzzles OR make this images)</h2>
+      <h2>Featured Pix to Fix</h2>
+
+      <div id="picture-container">
+        <!--display image 5 images in horizontal view and enable difficulty level selection with image selection -->
+      </div>
+
     </div>
+
+    
 
    <div class="picture-form-container">
     <h2>Create your own Puzzle</h2>
       <form id="picture-search-form">
-        <input id='search-keyword' type="text" name="keyword" value="" placeholder="Enter desired image..." class="input-text">
+        <input id='search-keyword' type="text" name="keyword" value="" placeholder="Enter desired pix..." class="input-text">
         <input id= 'submit-button' type="submit" name="submit" value="Search for Pix" class="submit"><br><br>
         <input id= 'random-button' type="button" name="submit" value="Get random Pix (pending)" class="random">
       </form><br><br>
@@ -29,23 +34,23 @@
    <div id="select-instructions">
     <h2>Select an Image to create a Puzzle</h2>
   </div>
-   
+
   <div id="select-pics">
   </div>
 
    <div id="puzzle-form-container">
     <form id="create-puzzle-form">
       
-      <!-- <input id="selected-image" name="selected-image" type="hidden" value=selectedImage> -->
+      <!-- <input id="image" name="image" type="hidden" value=selected_image> -->
+      <!-- image object passed from previous post fetch (picture create)-->
 
-      <!-- <select id="difficulty_level" name="difficulty_level">
-        <optgroup label="Difficulty">
+      <select id="difficulty_level" name="difficulty_level">
+        <option selected disabled>Difficulty Level</option>
         <option value="1">Easy</option>
         <option value="2">Medium</option>
         <option value="3">Hard</option>
-      </select> -->
+      </select><br><br>
 
-      <!--this should only be present when images rendered-->
       <input id= 'create-puzzle-button' type="submit" name="submit" value="Create Puzzle" class="submit">
     </form><br><br>
 

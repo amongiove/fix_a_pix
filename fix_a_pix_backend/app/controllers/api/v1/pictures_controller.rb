@@ -7,6 +7,17 @@ class Api::V1::PicturesController < ApplicationController
         render json: PictureSerializer.new(pictures)
     end
 
+    def create
+        puts "inside picture create"
+        puts params
+        picture = Picture.new(picture_params)
+        if picture.save
+            render json: picture, status: :accepted
+        else
+            render json: {errors: picture.errors.full_messages}, status: :unprocessible_entity
+        end
+    end
+
     # def random
     #     #generate random pic if user selects
     #     client = Pexels::Client.new('563492ad6f91700001000001a28dec988d85416a9cf80775977cb110')
@@ -23,15 +34,6 @@ class Api::V1::PicturesController < ApplicationController
         photos = client.photos.search(keyword, per_page: 5)
         
         render json: photos
-    end
-
-    def create
-        picture = Picture.new(picture_params)
-        if picture.save
-            render json: picture, status: :accepted
-        else
-            render json: {errors: picture.errors.full_messages}, status: :unprocessible_entity
-        end
     end
 
     private
