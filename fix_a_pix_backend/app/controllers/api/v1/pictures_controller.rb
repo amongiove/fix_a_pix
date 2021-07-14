@@ -8,13 +8,16 @@ class Api::V1::PicturesController < ApplicationController
     end
 
     def create
-        puts "inside picture create"
-        puts params
-        picture = Picture.new(picture_params)
-        if picture.save
-            render json: picture, status: :accepted
+        picture = Picture.find_by(picture_url: params[:picture_url])
+        if !picture
+            picture = Picture.new(picture_params)
+            if picture.save
+                render json: picture, status: :accepted
+            else
+                render json: {errors: picture.errors.full_messages}, status: :unprocessible_entity
+            end
         else
-            render json: {errors: picture.errors.full_messages}, status: :unprocessible_entity
+            render json: picture, status: :accepted
         end
     end
 

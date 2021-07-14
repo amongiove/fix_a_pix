@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   namespace :api do
     namespace :v1 do
-      resources :pictures, only: [:index, :create, :search]
+      resources :pictures, only: [:index, :create]
       get '/pictures/search/:keyword', to: 'pictures#search'
     end
   end

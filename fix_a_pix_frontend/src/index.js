@@ -1,10 +1,10 @@
 const pictureEndPoint = "http://localhost:3000/api/v1/pictures"
 
-//const puzzleEndPoint = "http://localhost:3000/api/vi/puzzles"
+const puzzleEndPoint = "http://localhost:3000/api/v1/puzzles"
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    getPictures()
+    // getPictures()
 
     hideCreatePuzzleAttributes()  
 
@@ -97,14 +97,26 @@ function createPicturePostFetch(picture_url, difficultyLevel){
     })
     .then(response => response.json())
     .then(picture => {
-        console.log("back from backend")
+        console.log("back from picture backend")
         console.log(picture);
         
-        createPuzzlePostFetch(picture, difficulty_level)
+        // createPuzzlePostFetch(picture, difficulty_level)
     })
 }
 
 function createPuzzlePostFetch(picture, difficulty_level){
     console.log("inside create puzzle post fetch")
     //create puzzle 
+    console.log(picture)
+    console.log(difficulty_level)
+    // fetch(puzzleEndPoint, {
+    //     method: "POST",
+    //     headers: {"Content-Type": "application/json"},
+    //     body: JSON.stringify({picture, difficulty_level})
+    // })
+    // .then(response => response.json())
+    // .then(puzzle => {
+    //     console.log("back from create puzzle backend")
+    //     console.log(puzzle);
+    // })
 }
