@@ -1,6 +1,5 @@
 const pictureEndPoint = "http://localhost:3000/api/v1/pictures"
-
-const puzzleEndPoint = "http://localhost:3000/api/v1/puzzles"
+const categoryEndPoint = "http://localhost:3000/api/v1/categories"
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -79,22 +78,35 @@ function searchPictureHandler(e) {
 function createPuzzleHandler(e){
     e.preventDefault()
     const selectedPictureUrl = document.querySelector(".img-rounded-border").src
-    const difficultyLevel = document.querySelector("#difficulty_level").value
+    const categoryName = document.querySelector("#assign-category").value
     
-    createPicturePostFetch(selectedPictureUrl, difficultyLevel)
+    categoryPostFetch(selectedPictureUrl, categoryName)
 }
 
-function createPicturePostFetch(picture_url, difficultyLevel){
+function categoryPostFetch(picture_url, name){
+    fetch(categoryEndPoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({name})
+    })
+    .then(response => response.json())
+    .then(category => {
+    
+        // createPicturePostFetch(picture_url, category)
+    })
+}
+
+function createPicturePostFetch(picture_url, category){
     fetch(pictureEndPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({picture_url})
+        body: JSON.stringify({picture_url, category})
     })
     .then(response => response.json())
     .then(picture => {
-        pictureId = picture.id
+        console.log(picture)
     
-        createPuzzlePostFetch(pictureId, difficultyLevel)
+        // createPuzzlePostFetch(pictureId, difficultyLevel)
     })
 }
 

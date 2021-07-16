@@ -42,7 +42,8 @@ class Api::V1::PicturesController < ApplicationController
     private
 
     def picture_params
-        params.require(:picture).permit(:picture_url, :title, :category_id)
+        params.require(:picture).permit(:picture_url, :category)
+        #does this need to be :category_id?
     end
 
 

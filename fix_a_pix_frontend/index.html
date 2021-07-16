@@ -10,10 +10,11 @@
   <body>
     <h1>Fix a Pix</h1>
 
-    <div class="random-puzzles">
+    <div class="random-pictures">
       <h2>Featured Pix to Fix</h2>
 
       <div id="picture-container">
+        <p>this will show 5 images horizontally</p>
         <!--display image 5 images in horizontal view and enable difficulty level selection with image selection -->
       </div>
 
@@ -26,7 +27,9 @@
       <form id="picture-search-form">
         <input id='search-keyword' type="text" name="keyword" value="" placeholder="Enter desired pix..." class="input-text">
         <input id= 'submit-button' type="submit" name="submit" value="Search for Pix" class="submit"><br><br>
-        <input id= 'random-button' type="button" name="submit" value="Get random Pix (pending)" class="random">
+        <input id= 'random-button' type="button" name="submit" value="Get random Pix (pending)" class="random"><br><br>
+        <input id= 'search-by-category-buton' type="button" name="submit" value="search by category option???" class="category">
+
       </form><br><br>
 
    </div>
@@ -41,14 +44,11 @@
    <div id="puzzle-form-container">
     <form id="create-puzzle-form">
       
-      <!-- <input id="image" name="image" type="hidden" value=selected_image> -->
-      <!-- image object passed from previous post fetch (picture create)-->
-
-      <select id="difficulty_level" name="difficulty_level">
-        <option selected disabled>Difficulty Level</option>
-        <option value="1">Easy</option>
-        <option value="2">Medium</option>
-        <option value="3">Hard</option>
+      <select id="assign-category" name="assign-category">
+        <option selected disabled>Assign a Category</option>
+        <option value="cat 1">cat 1</option>
+        <option value="cat 2">cat 2</option>
+        <option value="cat 3">cat 3 ... etc</option>
       </select><br><br>
 
       <input id= 'create-puzzle-button' type="submit" name="submit" value="Create Puzzle" class="submit">
