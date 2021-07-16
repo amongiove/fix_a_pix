@@ -17,6 +17,7 @@ class Api::V1::PicturesController < ApplicationController
                 render json: {errors: picture.errors.full_messages}, status: :unprocessible_entity
             end
         else
+            #need to account for picture exists but with diff category?
             render json: picture, status: :accepted
         end
     end
@@ -42,7 +43,7 @@ class Api::V1::PicturesController < ApplicationController
     private
 
     def picture_params
-        params.require(:picture).permit(:picture_url, :category)
+        params.require(:picture).permit(:picture_url, :category_id)
         #does this need to be :category_id?
     end
 

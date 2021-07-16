@@ -91,16 +91,18 @@ function categoryPostFetch(picture_url, name){
     })
     .then(response => response.json())
     .then(category => {
+        categoryId = category.id
     
-        // createPicturePostFetch(picture_url, category)
+        createPicturePostFetch(picture_url, categoryId)
     })
 }
 
-function createPicturePostFetch(picture_url, category){
+function createPicturePostFetch(picture_url, category_id){
+    console.log("inside picture post fetch")
     fetch(pictureEndPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({picture_url, category})
+        body: JSON.stringify({picture_url, category_id})
     })
     .then(response => response.json())
     .then(picture => {
