@@ -1,4 +1,3 @@
 class Picture < ApplicationRecord
-    #belongs_to :category
-    has_many :puzzles
+    belongs_to :category
 end
